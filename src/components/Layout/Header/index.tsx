@@ -1,14 +1,21 @@
-// Assets
-import { IconMenu, Logo } from "@/assets/images";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
+// Assets
+import { IconMenu, Logo } from "@/assets/images";
+
+// Related Components
+import MobileMenu from "./MobileMenu";
+
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <header id="header" className="header-default">
       <div className="px_15 lg-px_40">
         <div className="row wrapper-header align-items-center">
           <div className="col-md-4 col-3 tf-lg-hidden">
-            <a role="button">
+            <a role="button" onClick={() => setShowMenu(true)}>
               <img src={IconMenu} alt="menu" className="icon-menu" />
             </a>
           </div>
@@ -80,6 +87,8 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      <MobileMenu isShown={showMenu} closeMenu={() => setShowMenu(false)} />
     </header>
   );
 };
