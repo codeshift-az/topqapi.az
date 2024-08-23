@@ -6,9 +6,11 @@ import { IconMenu, Logo } from "@/assets/images";
 
 // Related Components
 import MobileMenu from "./MobileMenu";
+import ShoppingCart from "./ShoppingCart";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   return (
     <header id="header" className="header-default">
@@ -78,7 +80,12 @@ const Header = () => {
               </li>
 
               <li className="nav-cart">
-                <a role="button" className="nav-icon-item">
+                <a
+                  role="button"
+                  className="nav-icon-item"
+                  onClick={() => {
+                    setShowCart(true);
+                  }}>
                   <i className="icon icon-bag"></i>
                   <span className="count-box">0</span>
                 </a>
@@ -89,6 +96,7 @@ const Header = () => {
       </div>
 
       <MobileMenu isShown={showMenu} closeMenu={() => setShowMenu(false)} />
+      <ShoppingCart isShown={showCart} closeMenu={() => setShowCart(false)} />
     </header>
   );
 };
