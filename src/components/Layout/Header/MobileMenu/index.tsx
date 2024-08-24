@@ -117,7 +117,7 @@ function MobileMenu({ isShown, closeMenu }: Props) {
             <div className="tf-languages">
               <select className="image-select center style-default type-languages">
                 <option>English</option>
-                <option>Russian</option>
+                <option>Русский</option>
                 <option>Azərbaycan dili</option>
               </select>
             </div>

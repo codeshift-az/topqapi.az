@@ -98,6 +98,7 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
               </div>
               <div className="tf-mini-cart-bottom">
                 <div className="tf-mini-cart-tool">
+                  {/* //? Add note */}
                   <div
                     className="tf-mini-cart-tool-btn btn-add-note"
                     onClick={() => {
@@ -105,7 +106,8 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                     }}>
                     <img src={AddNote} alt="icon" />
                   </div>
-
+                  {/* //? Add note */}
+                  {/* //? Add gift */}
                   <div
                     className="tf-mini-cart-tool-btn btn-add-gift"
                     onClick={() => {
@@ -113,7 +115,8 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                     }}>
                     <img src={AddGift} alt="icon" />
                   </div>
-
+                  {/* //? Add note  */}
+                  {/* //? Add shipping */}
                   <div
                     className="tf-mini-cart-tool-btn btn-estimate-shipping"
                     onClick={() => {
@@ -121,6 +124,7 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                     }}>
                     <img src={Shipping} alt="icon" />
                   </div>
+                  {/* //? Add shipping */}
                 </div>
                 <div className="tf-mini-cart-bottom-wrap">
                   <div className="tf-cart-totals-discounts">
@@ -169,6 +173,7 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                   </div>
                 </div>
               </div>
+              {/* //? Openable add note */}
               <div
                 className={`tf-mini-cart-tool-openable add-note ${
                   showIcon[0] ? "open" : ""
@@ -199,7 +204,8 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                   </div>
                 </div>
               </div>
-
+              {/* //? Openable add note  */}
+              {/* //? Openable add gift */}
               <div
                 className={`tf-mini-cart-tool-openable add-gift ${
                   showIcon[1] ? "open" : ""
@@ -209,6 +215,7 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                   onClick={() => {
                     clickIcon(1);
                   }}></div>
+
                 <form className="tf-product-form-addgift">
                   <div className="tf-mini-cart-tool-content">
                     <div className="tf-mini-cart-tool-text">
@@ -238,6 +245,8 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                   </div>
                 </form>
               </div>
+              {/* //? Openable add gift  */}
+              {/* //? Openable add shipping */}
               <div
                 className={`tf-mini-cart-tool-openable estimate-shipping ${
                   showIcon[2] ? "open" : ""
@@ -247,6 +256,7 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                   onClick={() => {
                     clickIcon(2);
                   }}></div>
+
                 <div className="tf-mini-cart-tool-content">
                   <div className="tf-mini-cart-tool-text">
                     <div className="icon">
@@ -297,6 +307,7 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                   </div>
                 </div>
               </div>
+              {/* //? Openable add shipping */}
             </div>
           </div>
         </div>
