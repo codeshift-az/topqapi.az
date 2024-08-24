@@ -1,6 +1,6 @@
 import Header from "./Header";
-import Footer from "./Footer";
 import BackToTop from "./BackToTop";
+import Footer from "./Footer";
 
 interface Props {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
       <Header />
       <main>{children}</main>
       <Footer />
-      <BackToTop />
+       <BackToTop />
     </div>
   );
 };
