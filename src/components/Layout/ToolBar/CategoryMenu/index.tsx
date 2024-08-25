@@ -8,7 +8,7 @@ interface Props {
   show?: boolean;
   closeShop: () => void;
 }
-function ToolbarShop({ show, closeShop }: Props) {
+function CategoryMenu({ show, closeShop }: Props) {
   const [subMenu, setSubMenu] = useState<boolean[]>([false]);
 
   const toolBarShop = [
@@ -115,4 +115,4 @@ function ToolbarShop({ show, closeShop }: Props) {
   );
 }
 
-export default ToolbarShop;
+export default CategoryMenu;

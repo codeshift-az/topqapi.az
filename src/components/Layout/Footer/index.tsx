@@ -4,19 +4,22 @@ import { Link } from "react-router-dom";
 // Constants
 import { contactDetails } from "@/constants";
 
-//Assets
+// Assets
 import { Logo } from "@/assets/images";
 
 const Footer = () => {
-  const [showMobile, setShowMobile] = useState<boolean[]>([
+  const projectName = import.meta.env.VITE_PROJECT_NAME;
+
+  const [showSubMenu, setShowSubMenu] = useState<boolean[]>([
     false,
     false,
     false,
   ]);
-  const projectName = import.meta.env.VITE_PROJECT_NAME;
 
-  const toggleShow = (index: number) => {
-    setShowMobile((prev) => prev.map((item, i) => (index == i ? !item : item)));
+  const toggleSubMenu = (index: number) => {
+    setShowSubMenu((prev) =>
+      prev.map((item, i) => (index == i ? !item : item))
+    );
   };
 
   return (
@@ -32,6 +35,7 @@ const Footer = () => {
                       <img src={Logo} alt="" />
                     </Link>
                   </div>
+
                   <ul>
                     <li>
                       <p>Address: {contactDetails.address}</p>
@@ -39,19 +43,27 @@ const Footer = () => {
 
                     <li>
                       <p>
-                        Email: <a href="/">{contactDetails.email}</a>
+                        Email:{" "}
+                        <a href={`mail:${contactDetails.phone}`}>
+                          {contactDetails.email}
+                        </a>
                       </p>
                     </li>
 
                     <li>
                       <p>
-                        Phone: <a href="/">{contactDetails.phone}</a>
+                        Phone:{" "}
+                        <a href={`tel:${contactDetails.phone}`}>
+                          {contactDetails.phone}
+                        </a>
                       </p>
                     </li>
                   </ul>
-                  <a href="contact-1.html" className="tf-btn btn-line">
+
+                  <Link to="/contact" className="tf-btn btn-line">
                     Get direction<i className="icon icon-arrow1-top-left"></i>
-                  </a>
+                  </Link>
+
                   <ul className="tf-social-icon d-flex gap-10">
                     <li>
                       <Link
@@ -100,9 +112,10 @@ const Footer = () => {
                   </ul>
                 </div>
               </div>
+
               <div
                 className={`col-xl-3 col-md-6 col-12 footer-col-block ${
-                  showMobile[0] ? `open` : ""
+                  showSubMenu[0] ? "open" : ""
                 }`}>
                 <div className="footer-heading footer-heading-desktop">
                   <h6>Help</h6>
@@ -110,15 +123,15 @@ const Footer = () => {
 
                 <div
                   className="footer-heading footer-heading-moblie"
-                  onClick={() => {
-                    toggleShow(0);
-                  }}>
+                  onClick={() => toggleSubMenu(0)}>
                   <h6>Help</h6>
                 </div>
 
                 <ul
                   className="footer-menu-list tf-collapse-content"
-                  style={{ display: `${showMobile[0] ? `block` : `none`}` }}>
+                  style={{
+                    display: showSubMenu[0] ? "block" : "",
+                  }}>
                   <li>
                     <Link to="/privacy-policy" className="footer-menu_item">
                       Privacy Policy
@@ -164,7 +177,7 @@ const Footer = () => {
               </div>
               <div
                 className={`col-xl-3 col-md-6 col-12 footer-col-block ${
-                  showMobile[1] ? `open` : ""
+                  showSubMenu[1] ? "open" : ""
                 }`}>
                 <div className="footer-heading footer-heading-desktop">
                   <h6>About us</h6>
@@ -172,15 +185,15 @@ const Footer = () => {
 
                 <div
                   className="footer-heading footer-heading-moblie"
-                  onClick={() => {
-                    toggleShow(1);
-                  }}>
+                  onClick={() => toggleSubMenu(1)}>
                   <h6>About us</h6>
                 </div>
 
                 <ul
                   className="footer-menu-list tf-collapse-content"
-                  style={{ display: `${showMobile[1] ? `block` : `none`}` }}>
+                  style={{
+                    display: showSubMenu[1] ? "block" : "",
+                  }}>
                   <li>
                     <Link to="/about-us" className="footer-menu_item">
                       Our Story
@@ -209,7 +222,7 @@ const Footer = () => {
 
               <div
                 className={`col-xl-3 col-md-6 col-12 footer-col-block ${
-                  showMobile[2] ? `open` : ""
+                  showSubMenu[2] ? "open" : ""
                 }`}>
                 <div className="footer-newsletter footer-col-block">
                   <div className="footer-heading footer-heading-desktop">
@@ -218,16 +231,14 @@ const Footer = () => {
 
                   <div
                     className="footer-heading footer-heading-moblie"
-                    onClick={() => {
-                      toggleShow(2);
-                    }}>
+                    onClick={() => toggleSubMenu(2)}>
                     <h6>Sign Up for Email</h6>
                   </div>
 
                   <div
                     className="tf-collapse-content"
                     style={{
-                      display: `${showMobile[2] ? `block` : `none`}`,
+                      display: showSubMenu[2] ? "block" : "",
                     }}>
                     <div className="footer-menu_item">
                       Sign up to get first dibs on new arrivals, sales,
@@ -254,12 +265,13 @@ const Footer = () => {
 
                       <div id="subscribe-msg"></div>
                     </form>
+
                     <div className="tf-cur">
                       <div className="tf-languages">
                         <select className="image-select center style-default type-languages">
                           <option>English</option>
                           <option>Русский</option>
-                          <option>Azərbaycan dili</option>
+                          <option>Azərbaycanca</option>
                         </select>
                       </div>
                     </div>
@@ -269,6 +281,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="footer-bottom">
           <div className="container">
             <div className="row">

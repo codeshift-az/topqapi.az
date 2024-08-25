@@ -1,35 +1,37 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import ToolbarShop from "./ToolbarShop";
+
+// Related Components
+import CategoryMenu from "./CategoryMenu";
 
 const ToolBar = () => {
-  const [showToolbarShop, setShowToolbarShop] = useState(false);
+  const [showCategoryMenu, setShowCategoryMenu] = useState(false);
 
   return (
     <>
       <div className="tf-toolbar-bottom type-1150">
         <div className="toolbar-item active">
-          <a href="#toolbarShopmb">
+          <a
+            role="button"
+            onClick={() => setShowCategoryMenu(!showCategoryMenu)}>
             <div className="toolbar-icon">
-              <i
-                className="icon-shop"
-                onClick={() => setShowToolbarShop(!showToolbarShop)}></i>
+              <i className="icon-shop"></i>
             </div>
             <div className="toolbar-label">Shop</div>
           </a>
         </div>
 
         <div className="toolbar-item">
-          <a href="#canvasSearch">
+          <Link to="/search">
             <div className="toolbar-icon">
               <i className="icon-search"></i>
             </div>
             <div className="toolbar-label">Search</div>
-          </a>
+          </Link>
         </div>
 
         <div className="toolbar-item">
-          <Link to="/login">
+          <Link to="/account">
             <div className="toolbar-icon">
               <i className="icon-account"></i>
             </div>
@@ -38,17 +40,17 @@ const ToolBar = () => {
         </div>
 
         <div className="toolbar-item">
-          <Link to="/wishlist">
+          <Link to="/account/favorites">
             <div className="toolbar-icon">
               <i className="icon-heart"></i>
               <div className="toolbar-count">0</div>
             </div>
-            <div className="toolbar-label">Wishlist</div>
+            <div className="toolbar-label">Favorites</div>
           </Link>
         </div>
 
         <div className="toolbar-item">
-          <Link to="/shopping-cart">
+          <Link to="/account/cart">
             <div className="toolbar-icon">
               <i className="icon-bag"></i>
               <div className="toolbar-count">1</div>
@@ -57,9 +59,10 @@ const ToolBar = () => {
           </Link>
         </div>
       </div>
-      <ToolbarShop
-        show={showToolbarShop}
-        closeShop={() => setShowToolbarShop(false)}
+
+      <CategoryMenu
+        show={showCategoryMenu}
+        closeShop={() => setShowCategoryMenu(false)}
       />
     </>
   );

@@ -118,7 +118,7 @@ function MobileMenu({ isShown, closeMenu }: Props) {
               <select className="image-select center style-default type-languages">
                 <option>English</option>
                 <option>Русский</option>
-                <option>Azərbaycan dili</option>
+                <option>Azərbaycanca</option>
               </select>
             </div>
           </div>
