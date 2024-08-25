@@ -12,6 +12,9 @@ import { publicRoutes } from "@/routes";
 // Middlewares
 import { LanguageMiddleware } from "@/routes/middlewares";
 
+// Assets
+import "@/assets/css/styles.css";
+
 const App = () => {
   const { i18n } = useTranslation();
 
