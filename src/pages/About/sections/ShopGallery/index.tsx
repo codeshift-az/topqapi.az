@@ -1,38 +1,30 @@
 import { useEffect } from "react";
 
 // Swiper
-
 import Swiper, { Navigation, Pagination } from "swiper";
-
-// Swiper Css
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// Image Assets
+// Assets
+import { AboutGallery1 } from "@/assets/images";
 
-import ProductImg from "@/assets/images/aboutUs/gallery-7.jpg";
-
-export interface SliderShop {
-  img?: string;
-}
-const ShopGramSlider = () => {
-  const swiperShopData: SliderShop[] = [
+const ShopGallery = () => {
+  const galleryItems = [
     {
-      img: ProductImg,
+      img: AboutGallery1,
     },
     {
-      img: ProductImg,
+      img: AboutGallery1,
     },
     {
-      img: ProductImg,
+      img: AboutGallery1,
     },
     {
-      img: ProductImg,
+      img: AboutGallery1,
     },
     {
-      img: ProductImg,
+      img: AboutGallery1,
     },
   ];
 
@@ -70,28 +62,27 @@ const ShopGramSlider = () => {
             another.
           </p>
         </div>
+
         <div className="wrap-shop-gram">
           <div
             className="swiperShopGram tf-sw-shop-gallery"
             style={{ overflowX: "hidden" }}>
             <div className="swiper-wrapper">
-              <>
-                {swiperShopData.map((item, index) => {
-                  return (
-                    <div className="swiper-slide" key={index}>
-                      <div className="gallery-item hover-img">
-                        <div className="img-style">
-                          <img
-                            className="lazyload img-hover"
-                            src={item.img}
-                            alt="image-gallery"
-                          />
-                        </div>
+              {galleryItems.map((item, index) => {
+                return (
+                  <div className="swiper-slide" key={index}>
+                    <div className="gallery-item hover-img">
+                      <div className="img-style">
+                        <img
+                          className="lazyload img-hover"
+                          src={item.img}
+                          alt="image-gallery"
+                        />
                       </div>
                     </div>
-                  );
-                })}
-              </>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="sw-dots sw-pagination-gallery justify-content-center"></div>
@@ -101,4 +92,4 @@ const ShopGramSlider = () => {
   );
 };
 
-export default ShopGramSlider;
+export default ShopGallery;

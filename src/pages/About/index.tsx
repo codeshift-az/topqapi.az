@@ -1,27 +1,31 @@
 // Components
-
 import Layout from "@/components/Layout";
 
-// Components About
-
-import AboutBanner from "./AboutBanner";
-import AboutTitle from "./AboutTitle";
-import AboutCard1 from "./AboutCard1";
-import AboutCard2 from "./AboutCard2";
-import AboutSection from "./AboutSection";
-import ReviewSlider from "./ReviewSlider";
-import ShopGramSlider from "./ShopGramSlider";
+// Sections
+import Banner from "./sections/Banner";
+import Title from "./sections/Title";
+import OurHistory from "./sections/OurHistory";
+import OurMission from "./sections/OurMission";
+import IconBox from "./sections/IconBox";
+import Testimonials from "./sections/Testimonials";
+import ShopGramSlider from "./sections/ShopGallery";
 
 const About = () => {
   return (
     <Layout>
       <div id="wrapper">
-        <AboutBanner />
-        <AboutTitle />
-        <AboutCard1 />
-        <AboutCard2 />
-        <AboutSection />
-        <ReviewSlider />
+        <Banner />
+        <Title />
+        <div className="container">
+          <div className="line"></div>
+        </div>
+        <OurHistory />
+        <OurMission />
+        <IconBox />
+        <Testimonials />
+        <div className="container">
+          <div className="line"></div>
+        </div>
         <ShopGramSlider />
       </div>
     </Layout>
