@@ -1,9 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // Components
 import Layout from "@/components/Layout";
 
 const Register = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+    password_repeat: "",
+  });
+
   return (
     <Layout>
       <div id="wrapper">
@@ -24,65 +31,66 @@ const Register = () => {
                   emails
                 </p>
               </div>
+
               <div>
-                <form className="">
+                <form>
                   <div className="tf-field style-1 mb_15">
                     <input
-                      className="tf-field-input tf-input"
-                      placeholder=" "
-                      type="text"
-                      id="property1"
-                      name="first name"
-                    />
-                    <label
-                      className="tf-field-label fw-4 text_black-2"
-                      htmlFor="property1">
-                      First name
-                    </label>
-                  </div>
-
-                  <div className="tf-field style-1 mb_15">
-                    <input
-                      className="tf-field-input tf-input"
-                      placeholder=" "
-                      type="text"
-                      id="property2"
-                      name="last name"
-                    />
-                    <label
-                      className="tf-field-label fw-4 text_black-2"
-                      htmlFor="property2">
-                      Last name
-                    </label>
-                  </div>
-
-                  <div className="tf-field style-1 mb_15">
-                    <input
-                      className="tf-field-input tf-input"
-                      placeholder=" "
+                      required
                       type="email"
-                      id="property3"
                       name="email"
+                      placeholder=""
+                      value={data.email}
+                      onChange={(e) =>
+                        setData((prev) => ({
+                          ...prev,
+                          email: e.target.value,
+                        }))
+                      }
+                      className="tf-field-input tf-input"
                     />
-                    <label
-                      className="tf-field-label fw-4 text_black-2"
-                      htmlFor="property3">
+                    <label className="tf-field-label fw-4 text_black-2">
                       Email *
+                    </label>
+                  </div>
+
+                  <div className="tf-field style-1 mb_15">
+                    <input
+                      required
+                      type="password"
+                      name="password"
+                      placeholder=""
+                      value={data.password}
+                      onChange={(e) =>
+                        setData((prev) => ({
+                          ...prev,
+                          password: e.target.value,
+                        }))
+                      }
+                      className="tf-field-input tf-input"
+                    />
+                    <label className="tf-field-label fw-4 text_black-2">
+                      Password *
                     </label>
                   </div>
 
                   <div className="tf-field style-1 mb_30">
                     <input
-                      className="tf-field-input tf-input"
-                      placeholder=" "
+                      required
                       type="password"
-                      id="property4"
-                      name="password"
+                      name="password_repeat"
+                      placeholder=""
+                      value={data.password_repeat}
+                      onChange={(e) =>
+                        setData((prev) => ({
+                          ...prev,
+                          password_repeat: e.target.value,
+                        }))
+                      }
+                      className="tf-field-input tf-input"
                     />
-                    <label
-                      className="tf-field-label fw-4 text_black-2"
-                      htmlFor="property4">
-                      Password *
+                    <label className="tf-field-label fw-4 text_black-2">
+                      Password Repeat *
                     </label>
                   </div>
 
@@ -93,6 +101,7 @@ const Register = () => {
                       Register
                     </button>
                   </div>
+
                   <div className="text-center">
                     <Link to="/auth/login" className="tf-btn btn-line">
                       Already have an account? Log in here

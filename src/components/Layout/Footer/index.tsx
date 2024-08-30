@@ -7,9 +7,9 @@ import { contactDetails } from "@/constants";
 // Assets
 import { Logo } from "@/assets/images";
 
-const Footer = () => {
-  const projectName = import.meta.env.VITE_PROJECT_NAME;
+const projectName = import.meta.env.VITE_PROJECT_NAME;
 
+const Footer = () => {
   const [showSubMenu, setShowSubMenu] = useState<boolean[]>([
     false,
     false,
@@ -32,7 +32,7 @@ const Footer = () => {
                 <div className="footer-infor">
                   <div className="footer-logo">
                     <Link to="/">
-                      <img src={Logo} alt="" />
+                      <img src={Logo} alt="Logo" />
                     </Link>
                   </div>
 
@@ -133,19 +133,19 @@ const Footer = () => {
                     display: showSubMenu[0] ? "block" : "",
                   }}>
                   <li>
-                    <Link to="/privacy-policy" className="footer-menu_item">
+                    <Link to="/legal/privacy" className="footer-menu_item">
                       Privacy Policy
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="delivery-return" className="footer-menu_item">
+                    <Link to="/legal/return" className="footer-menu_item">
                       Returns + Exchanges
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="shipping-delivery" className="footer-menu_item">
+                    <Link to="/legal/shipping" className="footer-menu_item">
                       Shipping
                     </Link>
                   </li>
@@ -157,7 +157,7 @@ const Footer = () => {
                   </li>
 
                   <li>
-                    <Link to="/faq-1" className="footer-menu_item">
+                    <Link to="/faq" className="footer-menu_item">
                       FAQ’s
                     </Link>
                   </li>
@@ -169,8 +169,8 @@ const Footer = () => {
                   </li>
 
                   <li>
-                    <Link to="/wishlist" className="footer-menu_item">
-                      My Wishlist
+                    <Link to="/favorites" className="footer-menu_item">
+                      My Favorites
                     </Link>
                   </li>
                 </ul>
@@ -195,25 +195,25 @@ const Footer = () => {
                     display: showSubMenu[1] ? "block" : "",
                   }}>
                   <li>
-                    <Link to="/about-us" className="footer-menu_item">
+                    <Link to="/about" className="footer-menu_item">
                       Our Story
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="/our-store" className="footer-menu_item">
+                    <Link to="/stores" className="footer-menu_item">
                       Visit Our Store
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="/contact-1" className="footer-menu_item">
+                    <Link to="/contact" className="footer-menu_item">
                       Contact Us
                     </Link>
                   </li>
 
                   <li>
-                    <Link to="/login" className="footer-menu_item">
+                    <Link to="/account" className="footer-menu_item">
                       Account
                     </Link>
                   </li>
