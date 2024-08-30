@@ -6116,6 +6116,9 @@ header.header-bg {
   bottom: 0;
   right: 0;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .modal-shopping-cart
