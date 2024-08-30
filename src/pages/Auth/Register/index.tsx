@@ -9,7 +9,23 @@ const Register = () => {
     email: "",
     password: "",
     password_repeat: "",
+    error: "",
   });
+
+  const submitRegister = (e) => {
+    e.preventDefault();
+    if (data.password === data.password_repeat) {
+      return setData((prev) => ({
+        ...prev,
+        error: "",
+      }));
+    } else {
+      setData((prev) => ({
+        ...prev,
+        error: "Passwords do not match",
+      }));
+    }
+  };
 
   return (
     <Layout>
@@ -33,7 +49,7 @@ const Register = () => {
               </div>
 
               <div>
-                <form>
+                <form onSubmit={submitRegister}>
                   <div className="tf-field style-1 mb_15">
                     <input
                       required
@@ -92,6 +108,7 @@ const Register = () => {
                     <label className="tf-field-label fw-4 text_black-2">
                       Password Repeat *
                     </label>
+                    <p style={{ color: "red" }}>{data.error}</p>
                   </div>
 
                   <div className="mb_20">
