@@ -44,7 +44,7 @@ export const publicRoutes = [
   { path: "/auth/register", component: <Pages.Register /> },
 
   // Forgot Password
-  { path: "/auth/forgot-password", component: <Pages.NotFound /> },
+  { path: "/auth/forgot-password", component: <Pages.ForgotPassword /> },
 
   // Reset Password
   { path: "/auth/reset-password", component: <Pages.NotFound /> },
