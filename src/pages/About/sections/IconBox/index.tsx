@@ -1,4 +1,34 @@
+import { useEffect } from "react";
+
+//Swiper
+import Swiper, { Navigation, Pagination, Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 const IconBox = () => {
+  useEffect(() => {
+    new Swiper(".swiperIconBox", {
+      modules: [Pagination, Navigation, Autoplay],
+      autoplay: {
+        delay: 1000,
+      },
+      loop: true,
+      speed: 1000,
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 25,
+        },
+        768: {
+          slidesPerView: 5,
+        },
+        992: {
+          slidesPerView: 5,
+        },
+      },
+    });
+  }, []);
+
   return (
     <section>
       <div className="container" style={{ overflowX: "hidden" }}>
@@ -16,15 +46,14 @@ const IconBox = () => {
               </p>
             </div>
           </div>
-
           <div className="flat-iconbox-v3 lg">
             <div className="wrap-carousel wrap-mobile">
               <div
-                className="swiperTest tf-sw-mobile"
+                className="swiperIconBox tf-sw-mobile"
                 data-preview="1"
                 data-space="15">
                 <div className="swiper-wrapper wrap-iconbox lg">
-                  <div className="swiper-slide">
+                  <div className="swiper-slide slideIconbox">
                     <div className="tf-icon-box text-center">
                       <div className="icon">
                         <i className="icon-materials"></i>
@@ -39,8 +68,7 @@ const IconBox = () => {
                       </div>
                     </div>
                   </div>
-
-                  <div className="swiper-slide">
+                  <div className="swiper-slide slideIconbox">
                     <div className="tf-icon-box text-center">
                       <div className="icon">
                         <i className="icon-design"></i>
@@ -55,8 +83,7 @@ const IconBox = () => {
                       </div>
                     </div>
                   </div>
-
-                  <div className="swiper-slide">
+                  <div className="swiper-slide slideIconbox">
                     <div className="tf-icon-box text-center">
                       <div className="icon">
                         <i className="icon-sizes"></i>
