@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Components
 import Layout from "@/components/Layout";
@@ -7,6 +7,13 @@ import Layout from "@/components/Layout";
 const ForgotPassword = () => {
   const [emailData, setEmailData] = useState("");
 
+  const navigate = useNavigate();
+
+  const submitReset = (e) => {
+    e.preventDefault();
+    navigate("/auth/reset-password");
+    return;
+  };
   return (
     <Layout>
       <div id="wrapper">
@@ -27,7 +34,7 @@ const ForgotPassword = () => {
               </div>
 
               <div>
-                <form>
+                <form onSubmit={submitReset}>
                   <div className="tf-field style-1 mb_15">
                     <input
                       required
