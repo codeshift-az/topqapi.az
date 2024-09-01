@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 // Components
@@ -9,22 +9,35 @@ const Register = () => {
     email: "",
     password: "",
     password_repeat: "",
-    error: "",
   });
 
-  const submitRegister = (e) => {
+  const [validationMessages, setValidateMessages] = useState({
+    email: "",
+    password: "",
+    password_repeat: "",
+  });
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (data.password === data.password_repeat) {
-      return setData((prev) => ({
+    setValidateMessages({
+      email: "",
+      password: "",
+      password_repeat: "",
+    });
+    if (data.password !== data.password_repeat) {
+      setValidateMessages((prev) => ({
         ...prev,
-        error: "",
-      }));
-    } else {
-      setData((prev) => ({
-        ...prev,
-        error: "Passwords do not match",
+        password_repeat: "Password and Password repeat must be the same",
+        password: "wrong",
       }));
     }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
@@ -43,31 +56,24 @@ const Register = () => {
                 <h5 className="mb_18">Register</h5>
                 <p className="text_black-2">
                   Sign up for early Sale access plus tailored new arrivals,
-                  trends and promotions. To opt out, click unsubscribe in our
-                  emails
+                  trends, and promotions. To opt out, click unsubscribe in our
+                  emails.
                 </p>
               </div>
 
               <div>
-                <form onSubmit={submitRegister}>
+                <form onSubmit={handleSubmit}>
                   <div className="tf-field style-1 mb_15">
                     <input
                       required
                       type="email"
                       name="email"
-                      placeholder=""
+                      placeholder="Email"
                       value={data.email}
-                      onChange={(e) =>
-                        setData((prev) => ({
-                          ...prev,
-                          email: e.target.value,
-                        }))
-                      }
-                      className="tf-field-input tf-input"
+                      onChange={handleChange}
+                      className={`form-control ${data.email ? "is-valid" : ""}`}
                     />
-                    <label className="tf-field-label fw-4 text_black-2">
-                      Email *
-                    </label>
+                    <label className="invalid-feedback">{data.email}</label>
                   </div>
 
                   <div className="tf-field style-1 mb_15">
@@ -75,19 +81,13 @@ const Register = () => {
                       required
                       type="password"
                       name="password"
-                      placeholder=""
+                      placeholder="Password"
                       value={data.password}
-                      onChange={(e) =>
-                        setData((prev) => ({
-                          ...prev,
-                          password: e.target.value,
-                        }))
-                      }
-                      className="tf-field-input tf-input"
+                      onChange={handleChange}
+                      className={`form-control ${
+                        validationMessages.password ? "is-invalid" : ""
+                      }`}
                     />
-                    <label className="tf-field-label fw-4 text_black-2">
-                      Password *
-                    </label>
                   </div>
 
                   <div className="tf-field style-1 mb_30">
@@ -95,20 +95,16 @@ const Register = () => {
                       required
                       type="password"
                       name="password_repeat"
-                      placeholder=""
+                      placeholder="Password Repeat"
                       value={data.password_repeat}
-                      onChange={(e) =>
-                        setData((prev) => ({
-                          ...prev,
-                          password_repeat: e.target.value,
-                        }))
-                      }
-                      className="tf-field-input tf-input"
+                      onChange={handleChange}
+                      className={`form-control ${
+                        validationMessages.password_repeat ? "is-invalid" : ""
+                      }`}
                     />
-                    <label className="tf-field-label fw-4 text_black-2">
-                      Password Repeat *
+                    <label className="invalid-feedback">
+                      {validationMessages.password_repeat}
                     </label>
-                    <p style={{ color: "red" }}>{data.error}</p>
                   </div>
 
                   <div className="mb_20">
