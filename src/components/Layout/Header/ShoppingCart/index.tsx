@@ -87,6 +87,52 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                       </div>
                     ))}
                   </div>
+                  <div className="tf-mini-cart-bottom">
+                    <div className="tf-mini-cart-bottom-wrap">
+                      <div className="tf-cart-totals-discounts">
+                        <div className="tf-cart-total">Subtotal</div>
+                        <div className="tf-totals-total-value fw-6">
+                          $49.99 USD
+                        </div>
+                      </div>
+                      <div className="tf-cart-tax">
+                        Taxes and <a href="#">shipping</a> calculated at
+                        checkout
+                      </div>
+                      <div className="tf-mini-cart-line"></div>
+                      <div className="tf-cart-checkbox">
+                        <div className="tf-checkbox-wrapp">
+                          <input
+                            className=""
+                            type="checkbox"
+                            id="CartDrawer-Form_agree"
+                            name="agree_checkbox"
+                          />
+                          <div>
+                            <i className="icon-check"></i>
+                          </div>
+                        </div>
+                        <label htmlFor="CartDrawer-Form_agree">
+                          I agree with the
+                          <a href="#" title="Terms of Service">
+                            terms and conditions
+                          </a>
+                        </label>
+                      </div>
+                      <div className="tf-mini-cart-view-checkout">
+                        <Link
+                          to="/"
+                          className="tf-btn btn-outline radius-3 link w-100 justify-content-center">
+                          View cart
+                        </Link>
+                        <Link
+                          to="/"
+                          className="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center">
+                          <span>Check out</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

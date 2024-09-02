@@ -11,7 +11,7 @@ export const publicRoutes = [
   { path: "/products/:slug", component: <Pages.NotFound /> },
 
   // About Us
-  { path: "/about", component: <Pages.NotFound /> },
+  { path: "/about", component: <Pages.About /> },
 
   // Contact
   { path: "/contact", component: <Pages.NotFound /> },
