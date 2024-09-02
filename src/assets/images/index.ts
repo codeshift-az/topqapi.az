@@ -5,6 +5,15 @@ export { default as IconQuote } from "./icons/quote.svg";
 // Logo
 export { default as Logo } from "./icons/logo.svg";
 
+// Backgrounds
+export { default as PageTitleBackground } from "./background/page-title.png";
+
+// Products
+export { default as ProductImage1 } from "./products/product-1.jpg";
+
+// Categories
+export { default as CategoryImage1 } from "./categories/category-1.jpg";
+
 // About Images
 export { default as AboutBanner } from "./about/banner.jpg";
 export { default as AboutProduct } from "./about/product.jpg";

@@ -61,22 +61,22 @@ const Header = () => {
           <div className="col-xl-3 col-md-4 col-3">
             <ul className="nav-icon d-flex justify-content-end align-items-center gap-20">
               <li className="nav-search">
-                <a role="button" className="nav-icon-item">
+                <Link to="/search" className="nav-icon-item">
                   <i className="icon icon-search"></i>
-                </a>
+                </Link>
               </li>
 
               <li className="nav-account">
-                <a role="button" className="nav-icon-item">
+                <Link to="/auth/login" className="nav-icon-item">
                   <i className="icon icon-account"></i>
-                </a>
+                </Link>
               </li>
 
               <li className="nav-wishlist">
-                <a role="button" className="nav-icon-item">
+                <Link to="/account/favorites" className="nav-icon-item">
                   <i className="icon icon-heart"></i>
                   <span className="count-box">0</span>
-                </a>
+                </Link>
               </li>
 
               <li className="nav-cart">

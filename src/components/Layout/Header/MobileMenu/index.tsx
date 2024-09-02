@@ -81,8 +81,8 @@ function MobileMenu({ isShown, closeMenu }: Props) {
 
           <div className="mb-other-content">
             <div className="d-flex group-icon">
-              <Link to="/account/wishlist" className="site-nav-icon">
-                <i className="icon icon-heart"></i>Wishlist
+              <Link to="/account/favorites" className="site-nav-icon">
+                <i className="icon icon-heart"></i>Favorites
               </Link>
 
               <Link to="/search" className="site-nav-icon">

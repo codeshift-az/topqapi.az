@@ -38,16 +38,16 @@ export const publicRoutes = [
   { path: "/account/orders/:id", component: <Pages.NotFound /> },
 
   // Login
-  { path: "/auth/login", component: <Pages.NotFound /> },
+  { path: "/auth/login", component: <Pages.Login /> },
 
   // Register
-  { path: "/auth/register", component: <Pages.NotFound /> },
+  { path: "/auth/register", component: <Pages.Register /> },
 
   // Forgot Password
-  { path: "/auth/forgot-password", component: <Pages.NotFound /> },
+  { path: "/auth/forgot-password", component: <Pages.ForgotPassword /> },
 
   // Reset Password
-  { path: "/auth/reset-password", component: <Pages.NotFound /> },
+  { path: "/auth/reset-password", component: <Pages.ResetPassword /> },
 
   // Not Found
   { path: "*", component: <Pages.NotFound /> },
