@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 // Assets
-import ProductImage1 from "@/assets/images/products/white-2.jpg";
+import { ProductImage1 } from "@/assets/images";
 
 interface Props {
   isShown?: boolean;
