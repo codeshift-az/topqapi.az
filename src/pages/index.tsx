@@ -1,5 +1,6 @@
 export { default as Home } from "./Home";
 export { default as About } from "./About";
+export { default as Checkout } from "./Account/Checkout";
 export { default as NotFound } from "./NotFound";
 export { default as Login } from "./Auth/Login";
 export { default as Register } from "./Auth/Register";

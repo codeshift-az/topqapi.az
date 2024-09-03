@@ -29,7 +29,7 @@ export const publicRoutes = [
   { path: "/account/cart", component: <Pages.NotFound /> },
 
   // Checkout
-  { path: "/account/checkout", component: <Pages.NotFound /> },
+  { path: "/account/checkout", component: <Pages.Checkout /> },
 
   // Orders
   { path: "/account/orders", component: <Pages.NotFound /> },
