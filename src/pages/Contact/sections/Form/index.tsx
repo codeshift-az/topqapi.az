@@ -1,27 +1,41 @@
 import React, { useState } from "react";
 
-const FormContact = () => {
+const ContactForm = () => {
   const [data, setData] = useState({
-    name: "",
+    first_name: "",
+    last_name: "",
     email: "",
+    phone: "",
+    message: "",
   });
 
   const [validationMessages, setValidateMessages] = useState({
-    name: "",
+    first_name: "",
+    last_name: "",
     email: "",
+    phone: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setValidateMessages({
-      name: "",
+      first_name: "",
+      last_name: "",
       email: "",
+      phone: "",
+      message: "",
     });
+
     console.log(data);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
+
     setData((prev) => ({
       ...prev,
       [name]: value,
@@ -46,17 +60,55 @@ const FormContact = () => {
             <div className="d-flex gap-15 mb_15">
               <fieldset className="w-100">
                 <input
-                  type="text"
-                  name="name"
-                  value={data.name}
-                  id="name"
                   required
-                  placeholder="Name *"
+                  type="text"
+                  name="first_name"
+                  value={data.first_name}
+                  placeholder="First Name *"
                   onChange={handleChange}
                   className={`form-control ${
-                    validationMessages.name ? "is-invalid" : ""
+                    validationMessages.first_name ? "is-invalid" : ""
                   }`}
                 />
+
+                <label className="invalid-feedback">
+                  {validationMessages.first_name}
+                </label>
+              </fieldset>
+
+              <fieldset className="w-100">
+                <input
+                  required
+                  type="email"
+                  name="last_name"
+                  value={data.last_name}
+                  placeholder="Last Name *"
+                  onChange={handleChange}
+                  className={`form-control ${
+                    validationMessages.last_name ? "is-invalid" : ""
+                  }`}
+                />
+
+                <label className="invalid-feedback">
+                  {validationMessages.last_name}
+                </label>
+              </fieldset>
+            </div>
+
+            <div className="d-flex gap-15 mb_15">
+              <fieldset className="w-100">
+                <input
+                  required
+                  type="text"
+                  name="email"
+                  value={data.email}
+                  placeholder="Email *"
+                  onChange={handleChange}
+                  className={`form-control ${
+                    validationMessages.email ? "is-invalid" : ""
+                  }`}
+                />
+
                 <label className="invalid-feedback">
                   {validationMessages.email}
                 </label>
@@ -64,30 +116,32 @@ const FormContact = () => {
 
               <fieldset className="w-100">
                 <input
-                  type="email"
-                  value={data.email}
-                  name="email"
-                  id="email"
                   required
-                  placeholder="Email *"
+                  type="text"
+                  name="phone"
+                  value={data.phone}
+                  placeholder="Phone *"
                   onChange={handleChange}
                   className={`form-control ${
-                    validationMessages.email ? "is-invalid" : ""
+                    validationMessages.phone ? "is-invalid" : ""
                   }`}
                 />
+
                 <label className="invalid-feedback">
-                  {validationMessages.name}
+                  {validationMessages.phone}
                 </label>
               </fieldset>
             </div>
+
             <div className="mb_15">
               <textarea
-                placeholder="Message"
-                name="message"
-                id="message"
                 required
-                cols={"30" as any}
-                rows={"10" as any}></textarea>
+                cols={30}
+                rows={10}
+                name="message"
+                value={data.message}
+                onChange={handleChange}
+                placeholder="Message"></textarea>
             </div>
 
             <div className="send-wrap">
@@ -104,4 +158,4 @@ const FormContact = () => {
   );
 };
 
-export default FormContact;
+export default ContactForm;
