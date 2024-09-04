@@ -8,7 +8,7 @@ const PageTitle = ({ title }: Props) => {
   return (
     <div
       className="tf-page-title style-2"
-      style={{ backgroundImage: PageTitleBackground }}>
+      style={{ backgroundImage: `url(${PageTitleBackground})` }}>
       <div className="container-full">
         <div className="heading text-center">{title}</div>
       </div>
