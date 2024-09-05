@@ -26,7 +26,7 @@ export const publicRoutes = [
   { path: "/account/favorites", component: <Pages.NotFound /> },
 
   // Cart
-  { path: "/account/cart", component: <Pages.NotFound /> },
+  { path: "/account/cart", component: <Pages.ShoppingCart /> },
 
   // Checkout
   { path: "/account/checkout", component: <Pages.NotFound /> },
