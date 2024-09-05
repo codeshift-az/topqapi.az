@@ -121,12 +121,12 @@ function ShoppingCart({ isShown, closeMenu }: Props) {
                       </div>
                       <div className="tf-mini-cart-view-checkout">
                         <Link
-                          to="/"
+                          to="/account/cart"
                           className="tf-btn btn-outline radius-3 link w-100 justify-content-center">
                           View cart
                         </Link>
                         <Link
-                          to="/"
+                          to="/account/checkout"
                           className="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center">
                           <span>Check out</span>
                         </Link>
