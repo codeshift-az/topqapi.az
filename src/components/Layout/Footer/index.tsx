@@ -52,7 +52,7 @@ const Footer = () => {
 
                     <li>
                       <p>
-                        Phone:{" "}
+                        Phone:
                         <a href={`tel:${contactDetails.phone}`}>
                           {contactDetails.phone}
                         </a>

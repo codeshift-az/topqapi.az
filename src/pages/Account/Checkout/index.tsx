@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+// Assets
+import { ProductImage1 } from "@/assets/images";
+
 // Components
 import Layout from "@/components/Layout";
 import PageTitle from "@/components/PageTitle";
 
-// Assets
-import { ProductImage1 } from "@/assets/images";
-
 const Checkout = () => {
-  const productData = [
+  const products = [
     {
       title: "Ribbed modal T-shirt",
       color: "Brown",
@@ -27,6 +27,7 @@ const Checkout = () => {
       id: 2,
     },
   ];
+
   const [data, setData] = useState({
     first_name: "",
     last_name: "",
@@ -50,7 +51,6 @@ const Checkout = () => {
     email: "",
     note: "",
     discount_code: "",
-    payment: "bank",
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,11 +66,9 @@ const Checkout = () => {
       email: "",
       note: "",
       discount_code: "",
-      payment: "bank",
     });
 
     console.log(data);
-    return;
   };
 
   const handleChange = (
@@ -98,16 +96,18 @@ const Checkout = () => {
                 <div className="box grid-2">
                   <fieldset className="fieldset">
                     <label>First Name</label>
+
                     <input
                       required
                       type="text"
-                      className={`form-control ${
-                        validationMessages.first_name ? "is-invalid" : ""
-                      }`}
                       name="first_name"
                       value={data.first_name}
                       onChange={handleChange}
+                      className={`form-control ${
+                        validationMessages.first_name ? "is-invalid" : ""
+                      }`}
                     />
+
                     <label className="invalid-feedback">
                       {validationMessages.first_name}
                     </label>
@@ -115,16 +115,18 @@ const Checkout = () => {
 
                   <fieldset className="fieldset">
                     <label>Last Name</label>
+
                     <input
                       required
                       type="text"
+                      name="last_name"
+                      value={data.last_name}
+                      onChange={handleChange}
                       className={`form-control ${
                         validationMessages.last_name ? "is-invalid" : ""
                       }`}
-                      onChange={handleChange}
-                      name="last_name"
-                      value={data.last_name}
                     />
+
                     <label className="invalid-feedback">
                       {validationMessages.last_name}
                     </label>
@@ -133,13 +135,14 @@ const Checkout = () => {
 
                 <fieldset className="box fieldset">
                   <label>Country/Region</label>
+
                   <div className="select-custom">
                     <select
-                      className="tf-select w-100"
                       name="country"
                       value={data.country}
-                      onChange={handleChange}>
-                      <option value="---">---</option>
+                      onChange={handleChange}
+                      className="tf-select w-100">
+                      <option>Select Country</option>
 
                       <option value="Azerbaijan">Azerbaijan</option>
 
@@ -148,6 +151,7 @@ const Checkout = () => {
                       <option value="Russia">Russia</option>
                     </select>
                   </div>
+
                   <label className="invalid-feedback">
                     {validationMessages.country}
                   </label>
@@ -155,6 +159,7 @@ const Checkout = () => {
 
                 <fieldset className="box fieldset">
                   <label>Town/City</label>
+
                   <input
                     required
                     type="text"
@@ -165,6 +170,7 @@ const Checkout = () => {
                       validationMessages.city ? "is-invalid" : ""
                     }`}
                   />
+
                   <label className="invalid-feedback">
                     {validationMessages.city}
                   </label>
@@ -172,6 +178,7 @@ const Checkout = () => {
 
                 <fieldset className="box fieldset">
                   <label>Address</label>
+
                   <input
                     required
                     type="text"
@@ -182,6 +189,7 @@ const Checkout = () => {
                       validationMessages.address ? "is-invalid" : ""
                     }`}
                   />
+
                   <label className="invalid-feedback">
                     {validationMessages.address}
                   </label>
@@ -189,6 +197,7 @@ const Checkout = () => {
 
                 <fieldset className="box fieldset">
                   <label>Phone Number</label>
+
                   <input
                     required
                     type="number"
@@ -199,6 +208,7 @@ const Checkout = () => {
                       validationMessages.phone ? "is-invalid" : ""
                     }`}
                   />
+
                   <label className="invalid-feedback">
                     {validationMessages.phone}
                   </label>
@@ -206,6 +216,7 @@ const Checkout = () => {
 
                 <fieldset className="box fieldset">
                   <label>Email</label>
+
                   <input
                     type="email"
                     name="email"
@@ -215,6 +226,7 @@ const Checkout = () => {
                       validationMessages.email ? "is-invalid" : ""
                     }`}
                   />
+
                   <label className="invalid-feedback">
                     {validationMessages.email}
                   </label>
@@ -222,6 +234,7 @@ const Checkout = () => {
 
                 <fieldset className="box fieldset">
                   <label>Order notes (optional)</label>
+
                   <textarea
                     name="note"
                     value={data.note}
@@ -229,19 +242,22 @@ const Checkout = () => {
                 </fieldset>
               </form>
             </div>
+
             <div className="tf-page-cart-footer">
               <div className="tf-cart-footer-inner">
                 <h5 className="fw-5 mb_20">Your order</h5>
+
                 <form
                   className="tf-page-cart-checkout widget-wrap-checkout"
                   onSubmit={handleSubmit}>
                   <ul className="wrap-checkout-product">
-                    {productData.map((item) => (
+                    {products.map((item) => (
                       <li className="checkout-product-item" key={item.id}>
                         <figure className="img-product">
                           <img src={item.image} alt="product" />
                           <span className="quantity">1</span>
                         </figure>
+
                         <div className="content">
                           <div className="info">
                             <p className="name">{item.title}</p>
@@ -267,34 +283,38 @@ const Checkout = () => {
                           validationMessages.discount_code ? "is-invalid" : ""
                         }`}
                       />
+
                       <label
                         className="invalid-feedback"
                         style={{ position: "absolute" }}>
                         {validationMessages.discount_code}
                       </label>
                     </div>
-                    <Link
-                      to="/"
+
+                    <a
+                      role="button"
                       className="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn">
                       Apply
-                    </Link>
+                    </a>
                   </div>
 
                   <div className="d-flex justify-content-between line pb_20">
                     <h6 className="fw-5">Total</h6>
                     <h6 className="total fw-5">$122.00</h6>
                   </div>
+
                   <div className="wd-check-payment">
                     <div className="fieldset-radio mb_20">
                       <input
                         type="radio"
-                        name="payment"
                         value="bank"
+                        name="payment"
                         className="tf-check"
                         checked={data.payment === "bank"}
                         onChange={handleChange}
                       />
-                      <label >Direct bank transfer</label>
+
+                      <label>Direct bank transfer</label>
                     </div>
 
                     <div className="fieldset-radio mb_20">
@@ -306,14 +326,16 @@ const Checkout = () => {
                         checked={data.payment === "delivery"}
                         onChange={handleChange}
                       />
+
                       <label>Cash on delivery</label>
                     </div>
+
                     <p className="text_black-2 mb_20">
                       Your personal data will be used to process your order,
                       support your experience throughout this website, and for
                       other purposes described in our
                       <Link
-                        to="/privacy-policy"
+                        to="/legal/privacy"
                         className="text-decoration-underline">
                         privacy policy
                       </Link>
@@ -323,9 +345,11 @@ const Checkout = () => {
                     <div className="box-checkbox fieldset-radio mb_20">
                       <input type="checkbox" className="tf-check" />
                       <label className="text_black-2">
-                        I have read and agree to the website
-                        <Link to="/" className="text-decoration-underline">
-                          terms and conditions
+                        I have read and agree to the website{" "}
+                        <Link
+                          to="/legal/terms"
+                          className="text-decoration-underline">
+                          terms & conditions
                         </Link>
                         .
                       </label>
