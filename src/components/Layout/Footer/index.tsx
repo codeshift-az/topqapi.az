@@ -6,6 +6,13 @@ import { contactDetails } from "@/constants";
 
 // Assets
 import { Logo } from "@/assets/images";
+import {
+  AmazonIcon,
+  AmericanIcon,
+  MasterIcon,
+  PaypalIcon,
+  VisaIcon,
+} from "@/assets/images";
 
 const projectName = import.meta.env.VITE_PROJECT_NAME;
 
@@ -290,11 +297,11 @@ const Footer = () => {
                   <div className="footer-menu_item">© 2024 {projectName}</div>
 
                   <div className="tf-payment">
-                    <img src="images/payments/visa.png" alt="" />
-                    <img src="images/payments/img-1.png" alt="" />
-                    <img src="images/payments/img-2.png" alt="" />
-                    <img src="images/payments/img-3.png" alt="" />
-                    <img src="images/payments/img-4.png" alt="" />
+                    <img src={VisaIcon} alt="icon" />
+                    <img src={PaypalIcon} alt="icon" />
+                    <img src={MasterIcon} alt="icon" />
+                    <img src={AmericanIcon} alt="icon" />
+                    <img src={AmazonIcon} alt="icon" />
                   </div>
                 </div>
               </div>
