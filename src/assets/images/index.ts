@@ -1,7 +1,11 @@
 // Icons
 export { default as IconMenu } from "./icons/menu.svg";
 export { default as IconQuote } from "./icons/quote.svg";
-export {default as CarIcon} from "./icons/car.svg"
+export {default as IconCar} from "./icons/car.svg"
+export {default as IconMinus} from "./icons/minus.svg"
+export {default as IconPlus} from "./icons/plus.svg"
+export {default as IconFire} from "./icons/fire.svg"
+
 
 
 // Logo
@@ -12,7 +16,6 @@ export { default as PageTitleBackground } from "./background/page-title.png";
 
 // Products
 export { default as ProductImage1 } from "./products/product-1.jpg";
-export { default as ViewCartImg } from "./products/white-2.jpg";
 
 
 // Categories
@@ -32,5 +35,4 @@ export {default as PaypalIcon} from "./icons/paypal.svg"
 export {default as MasterIcon} from "./icons/mastercard.svg"
 export {default as AmericanIcon} from "./icons/americanExpres.svg"
 export {default as AmazonIcon} from "./icons/amazon.svg"
-
 
