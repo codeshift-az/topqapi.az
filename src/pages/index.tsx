@@ -4,6 +4,12 @@ export { default as Contact } from "./Contact";
 
 // Account
 export { default as Checkout } from "./Account/Checkout";
+export { default as Orders } from "./Account/Orders";
+export { default as AccountDetails } from "./Account/AccountDetails";
+export { default as Address } from "./Account/Address";
+export { default as Favorites } from "./Account/Favorites";
+
+
 
 // Auth
 export { default as Login } from "./Auth/Login";
