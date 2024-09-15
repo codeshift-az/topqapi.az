@@ -28,8 +28,8 @@ export const publicRoutes = [
   //Account Address
   { path: "/account/address", component: <Pages.Address /> },
 
-    //Account Favorites
-    { path: "/account/favorites", component: <Pages.Favorites /> },
+  //Account Favorites
+  { path: "/account/favorites", component: <Pages.Favorites /> },
 
   // Favorites
   { path: "/account/favorites", component: <Pages.NotFound /> },
@@ -44,7 +44,7 @@ export const publicRoutes = [
   { path: "/account/orders", component: <Pages.Orders /> },
 
   // Order Details
-  { path: "/account/orders/:id", component: <Pages.NotFound /> },
+  { path: "/account/orders/:id", component: <Pages.OrdersDetails /> },
 
   // Login
   { path: "/auth/login", component: <Pages.Login /> },

@@ -10,6 +10,8 @@ const AccountDetails = () => {
     current_password: "",
     new_password: "",
     confirm_password: "",
+    address: "",
+    country: "",
   });
 
   const [validationMessages, setValidateMessages] = useState({
@@ -19,6 +21,8 @@ const AccountDetails = () => {
     current_password: "",
     new_password: "",
     confirm_password: "",
+    address: "",
+    country: "",
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,6 +35,8 @@ const AccountDetails = () => {
       current_password: "",
       new_password: "",
       confirm_password: "",
+      address: "",
+      country: "",
     });
     if (data.new_password !== data.confirm_password) {
       setValidateMessages((prev) => ({
@@ -43,7 +49,9 @@ const AccountDetails = () => {
     console.log(data);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
 
     setData((prev) => ({
@@ -109,6 +117,39 @@ const AccountDetails = () => {
                 {validationMessages.email}
               </label>
             </div>
+            <div className="tf-field style-1 mb_30">
+              <input
+                placeholder="Address"
+                type="text"
+                name="address"
+                value={data.address}
+                onChange={handleChange}
+                className={`form-control ${
+                  validationMessages.address ? "is-invalid" : ""
+                }`}
+                required
+              />
+              <label className="invalid-feedback">
+                {validationMessages.address}
+              </label>
+            </div>
+            <div className="tf-field style-1 mb_30">
+              <label className="mb_10 fw-4 text-start d-block text_black-2 ">
+                Country/Region
+              </label>
+              <div className="select-custom">
+                <select
+                  className="tf-select w-100"
+                  name="country"
+                  value={data.country}
+                  onChange={handleChange}>
+                  <option value="---" data-provinces="[]">
+                    ---
+                  </option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                </select>
+              </div>
+            </div>
             <h6 className="mb_20">Password Change</h6>
             <div className="tf-field style-1 mb_30">
               <input
@@ -116,7 +157,7 @@ const AccountDetails = () => {
                 className={`form-control ${
                   validationMessages.current_password ? "is-invalid" : ""
                 }`}
-                placeholder="Current password"
+                placeholder="Old password"
                 type="password"
                 name="current_password"
                 value={data.current_password}
@@ -148,7 +189,7 @@ const AccountDetails = () => {
                 className={`form-control ${
                   validationMessages.confirm_password ? "is-invalid" : ""
                 }`}
-                placeholder="Confirm password"
+                placeholder="New password repeat"
                 type="password"
                 name="confirm_password"
                 value={data.confirm_password}
@@ -158,6 +199,7 @@ const AccountDetails = () => {
                 {validationMessages.confirm_password}
               </label>
             </div>
+
             <div className="mb_20">
               <button
                 type="submit"
