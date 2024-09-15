@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // Components
 import AcoountLayout from "@/components/AccountLayout";
 
@@ -23,11 +25,11 @@ const Orders = () => {
                 <td>On hold</td>
                 <td>$200.0 for 1 items</td>
                 <td>
-                  <a
-                    href="my-account-orders-details.html"
+                  <Link
+                    to="/account/orders/:id"
                     className="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
                     <span>View</span>
-                  </a>
+                  </Link>
                 </td>
               </tr>
               <tr className="tf-order-item">
@@ -36,11 +38,11 @@ const Orders = () => {
                 <td>On hold</td>
                 <td>$300.0 for 1 items</td>
                 <td>
-                  <a
-                    href="my-account-orders-details.html"
+                  <Link
+                    to="/account/orders/:id"
                     className="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
                     <span>View</span>
-                  </a>
+                  </Link>
                 </td>
               </tr>
               <tr className="tf-order-item">
@@ -49,11 +51,11 @@ const Orders = () => {
                 <td>On hold</td>
                 <td>$400.0 for 1 items</td>
                 <td>
-                  <a
-                    href="my-account-orders-details.html"
+                  <Link
+                    to="/account/orders/:id"
                     className="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
                     <span>View</span>
-                  </a>
+                  </Link>
                 </td>
               </tr>
             </tbody>
