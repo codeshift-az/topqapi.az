@@ -2,6 +2,7 @@ import { useState } from "react";
 
 // Components
 import AcoountLayout from "@/components/AccountLayout";
+
 const AccountDetails = () => {
   const [data, setData] = useState({
     first_name: "",
@@ -63,11 +64,7 @@ const AccountDetails = () => {
     <AcoountLayout title="Account Details">
       <div className="my-account-content account-edit">
         <div className="">
-          <form
-            className=""
-            id="form-password-change"
-            action="#"
-            onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="tf-field style-1 mb_15">
               <input
                 required
@@ -80,11 +77,11 @@ const AccountDetails = () => {
                 value={data.first_name}
                 onChange={handleChange}
               />
-
               <label className="invalid-feedback">
                 {validationMessages.first_name}
               </label>
             </div>
+
             <div className="tf-field style-1 mb_15">
               <input
                 required
@@ -101,6 +98,7 @@ const AccountDetails = () => {
                 {validationMessages.last_name}
               </label>
             </div>
+
             <div className="tf-field style-1 mb_15">
               <input
                 required
@@ -117,6 +115,7 @@ const AccountDetails = () => {
                 {validationMessages.email}
               </label>
             </div>
+
             <div className="tf-field style-1 mb_30">
               <input
                 placeholder="Address"
@@ -133,6 +132,7 @@ const AccountDetails = () => {
                 {validationMessages.address}
               </label>
             </div>
+
             <div className="tf-field style-1 mb_30">
               <label className="mb_10 fw-4 text-start d-block text_black-2 ">
                 Country/Region
@@ -150,6 +150,16 @@ const AccountDetails = () => {
                 </select>
               </div>
             </div>
+
+            <div className="mb_20">
+              <button
+                type="submit"
+                className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">
+                Save Changes
+              </button>
+            </div>
+          </form>
+          <form onSubmit={handleSubmit}>
             <h6 className="mb_20">Password Change</h6>
             <div className="tf-field style-1 mb_30">
               <input
