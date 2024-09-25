@@ -42,8 +42,6 @@ const App = () => {
             ))}
           </React.Fragment>
         ))}
-
-  
       </Routes>
     </React.Fragment>
   );

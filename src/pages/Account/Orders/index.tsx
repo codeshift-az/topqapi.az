@@ -4,6 +4,36 @@ import { Link } from "react-router-dom";
 import AcoountLayout from "@/components/AccountLayout";
 
 const Orders = () => {
+  const allOrders = [
+    {
+      id: 1,
+      date: "2024-08-1",
+      status: "On hold",
+      total: "200",
+    },
+    {
+      id: 2,
+      date: "2024-08-2",
+      status: "On hold",
+      total: "300",
+    },
+    {
+      id: 3,
+      date: "2024-08-3",
+      status: "On hold",
+      total: "400",
+    },
+  ];
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("default", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
   return (
     <AcoountLayout title="Orders">
       <div className="my-account-content account-order">
@@ -19,45 +49,23 @@ const Orders = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="tf-order-item">
-                <td>#123</td>
-                <td>August 1, 2024</td>
-                <td>On hold</td>
-                <td>$200.0 for 1 items</td>
-                <td>
-                  <Link
-                    to="/account/orders/:id"
-                    className="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
-                    <span>View</span>
-                  </Link>
-                </td>
-              </tr>
-              <tr className="tf-order-item">
-                <td>#345</td>
-                <td>August 2, 2024</td>
-                <td>On hold</td>
-                <td>$300.0 for 1 items</td>
-                <td>
-                  <Link
-                    to="/account/orders/:id"
-                    className="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
-                    <span>View</span>
-                  </Link>
-                </td>
-              </tr>
-              <tr className="tf-order-item">
-                <td>#567</td>
-                <td>August 3, 2024</td>
-                <td>On hold</td>
-                <td>$400.0 for 1 items</td>
-                <td>
-                  <Link
-                    to="/account/orders/:id"
-                    className="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
-                    <span>View</span>
-                  </Link>
-                </td>
-              </tr>
+              {allOrders?.map((item) => {
+                return (
+                  <tr className="tf-order-item" key={item.id}>
+                    <td># {item.id}</td>
+                    <td>{formatDate(item.date)}</td>
+                    <td>{item.status}</td>
+                    <td>$ {item.total} for 1 items</td>
+                    <td>
+                      <Link
+                        to={`/account/orders/${item.id}`}
+                        className="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
+                        <span>View</span>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

@@ -14553,7 +14553,11 @@ blockquote .text {
   .card-product.style-8 {
     padding: 10px 10px 30px;
   }
-
+  .wrapper-shop {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+  }
   .wrapper-shop .card-product {
     margin-bottom: 30px;
   }
@@ -18747,4 +18751,10 @@ blockquote .text {
 
 .gap-15 {
   gap: 15px !important;
+}
+.overlinePrice{
+  text-decoration: line-through;
+  margin-right: 10px;
+  color: #453636;
+  margin-left: 5px;
 }
