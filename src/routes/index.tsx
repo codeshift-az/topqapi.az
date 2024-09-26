@@ -22,6 +22,15 @@ export const publicRoutes = [
   // Account
   { path: "/account", component: <Pages.NotFound /> },
 
+  //Account Details
+  { path: "/account/details", component: <Pages.AccountDetails /> },
+
+  //Account Address
+  { path: "/account/address", component: <Pages.Address /> },
+
+  //Account Favorites
+  { path: "/account/favorites", component: <Pages.Favorites /> },
+
   // Favorites
   { path: "/account/favorites", component: <Pages.NotFound /> },
 
@@ -32,10 +41,10 @@ export const publicRoutes = [
   { path: "/account/checkout", component: <Pages.Checkout /> },
 
   // Orders
-  { path: "/account/orders", component: <Pages.NotFound /> },
+  { path: "/account/orders", component: <Pages.Orders /> },
 
   // Order Details
-  { path: "/account/orders/:id", component: <Pages.NotFound /> },
+  { path: "/account/orders/:id", component: <Pages.OrdersDetails /> },
 
   // Login
   { path: "/auth/login", component: <Pages.Login /> },
